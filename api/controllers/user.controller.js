@@ -29,6 +29,7 @@ exports.deleteUser = async (req, res) => {
 
 exports.addToCart = async (req, res) => {
   try {
+    console.log('holis')
     const user = await userModel.findById(req.params.userId)
     console.log(user)
     await user.cart.push({
@@ -39,6 +40,7 @@ exports.addToCart = async (req, res) => {
       quantity: req.body.quantity,
       price: req.body.price
     })
+    console.log(user) 
     await user.save()
     console.log('done')
     
